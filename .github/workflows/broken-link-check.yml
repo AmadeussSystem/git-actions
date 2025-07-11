@@ -2,10 +2,10 @@ name: "Broken Link Checker"
 
 on:
   push:
-    branches: [ main ]  # Run on push to main
+    branches: [ main ]
   schedule:
-    - cron: '0 2 * * *'  # Daily at 02:00 UTC
-    - cron: '0 2 * * 0'  # Weekly on Sunday at 02:00 UTC
+    - cron: '0 2 * * *'
+    - cron: '0 2 * * 0'
 
 jobs:
   link-check:
@@ -19,5 +19,4 @@ jobs:
       - name: Run lychee link checker
         uses: lycheeverse/lychee-action@v1
         with:
-          path: "."
-          options: "--verbose --timeout 30"
+          args: "--verbose --timeout 30 ."
